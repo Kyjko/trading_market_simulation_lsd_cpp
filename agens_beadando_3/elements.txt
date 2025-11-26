@@ -1,0 +1,3 @@
+Avg_B Avg_M Avg_Return Avg_V B EMA F Init Interaction M Mutation N P prob_trade Q Return Total_Trade Trade V
+alpha avg_starting_m AVG_STARTING_M_STD avg_starting_v AVG_STARTING_V_STD entry_prob exit_prob gamma k mutation_level mutation_prob PRICE_START prob_interaction rho_bb rho_f rho_ma sigma_fundament sigma_learning sigma_price sigma_trade smoothing X Y
+Agent Market

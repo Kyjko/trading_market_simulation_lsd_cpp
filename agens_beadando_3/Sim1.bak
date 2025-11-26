@@ -1,0 +1,1072 @@
+	
+Label Root
+{
+	Son: Market
+	Label Market
+	{
+		Son: Agent
+		Label Agent
+		{
+			Param: gamma
+			Param: mutation_prob
+			Param: smoothing
+			Param: rho_bb
+			Param: rho_f
+			Param: rho_ma
+			Param: k
+			Param: sigma_trade
+			Var: B
+			Var: EMA
+			Var: M
+			Var: V
+			Var: Q
+			Var: Trade
+			Var: Interaction
+			Var: prob_trade
+			Param: prob_interaction
+			Var: Return
+			Param: X
+			Param: Y
+
+		}
+
+		Param: alpha
+		Param: entry_prob
+		Param: exit_prob
+		Param: mutation_level
+		Param: sigma_learning
+		Param: sigma_price
+		Param: sigma_fundament
+		Var: Total_Trade
+		Var: Avg_B
+		Var: N
+		Var: Mutation
+		Var: P
+		Var: F
+		Var: Avg_M
+		Var: Avg_V
+		Var: Avg_Return
+		Param: avg_starting_m
+		Param: avg_starting_v
+
+	}
+
+	Var: Init
+	Param: PRICE_START
+	Param: AVG_STARTING_M_STD
+	Param: AVG_STARTING_V_STD
+
+}
+
+
+DATA
+
+Object: Root C	1
+Var: Init 0 n + n n
+Param: PRICE_START 0 n + n n	100
+Param: AVG_STARTING_M_STD 0 n + n n	0
+Param: AVG_STARTING_V_STD 0 n + n n	0
+
+Object: Market C	1
+Param: alpha 0 n + n n	0.05
+Param: entry_prob 0 n + n n	0.025
+Param: exit_prob 0 n + n n	0.025
+Param: mutation_level 0 n + n n	0.1
+Param: sigma_learning 0 n + n n	0.01
+Param: sigma_price 0 n + n n	1
+Param: sigma_fundament 0 n + n n	1
+Var: Total_Trade 0 n + n n
+Var: Avg_B 0 n + n n
+Var: N 1 s + n n	50
+Var: Mutation 0 n + n n
+Var: P 10 s + n p	0	0	0	0	0	0	0	0	0	0
+Var: F 1 n + n n	100
+Var: Avg_M 0 n + n n
+Var: Avg_V 0 n + n n
+Var: Avg_Return 0 s + n n
+Param: avg_starting_m 0 n + n n	5000
+Param: avg_starting_v 0 n + n n	50
+
+Object: Agent C	50
+Param: gamma 0 n + n n	0.022420006775699	0.00765749906271153	0.0379325076272197	0.0399160878617905	0.0104727925023285	0.00140307394887427	0.0047132050320024	0.0495673074759415	0.026628434068133	0.00339528978345202	0.0209656990606821	0.00370271671293442	0.0231619326110809	0.0294358647302786	0.0437628549425033	0.00345647966090775	0.0361206450152814	0.0059875547473792	0.0485870008914083	0.027260367307247	0.00781537260467869	0.0195182878838552	0.00539626056063816	0.0474438330002277	0.00764911866259112	0.0212970668651481	0.0281023698029599	0.0308763785796332	0.0465835374289543	0.0220607189252841	0.0421268425994996	0.0235724904215173	0.0279777841142057	0.039960472701354	0.023085757996262	0.0397017632755674	0.0174893668925072	0.0221510364078093	0.0488942215338605	0.0470143220655305	0.00994540588557146	0.0260165886055232	0.034001663507197	0.0357089617705329	0.0097291356547273	0.0265318675991886	0.00624605627283935	0.0329510621960809	0.00128069927847406	0.0423591567586838
+Param: mutation_prob 0 n + n n	0.0688833220869468	0.0666295633975802	0.0304817267343823	0.038247544308453	0.0790799718690371	0.0276951848480901	0.00817249936144813	0.0455196054187977	0.0244444092695124	0.0611099465242447	0.0405458556325014	0.0806544314077989	0.0399414451823635	0.0818514491071977	0.00522425038664025	0.0967665033406518	0.0354128206532028	0.0475071646137323	0.0226347952203124	0.0429329447001383	0.00940632761670233	0.00818740567121461	0.0226886629776731	0.00882347739385493	0.0167857418326943	0.08583010944399	0.0506696836053327	0.049575895494534	0.0810193857496471	0.0234458184121741	0.0938691486022062	0.0402687531886588	0.0989134222410318	0.0482616875560158	0.0863828902489076	0.0561654356608451	0.0243244880714264	0.07899853080686	0.0477492336491425	0.038934651778782	0.0859183035579629	0.0478535552349638	0.0645421637221861	0.0203336317094399	0.0840020983768487	0.0322169908254816	0.043487952350368	0.045351173085258	0.0343392609864017	0.05465813155759
+Param: smoothing 0 n + n n	2.29802135451399	1.81524494447054	1.64387680776277	2.42577803423823	1.6534029991162	2.44802454918939	1.59099460348062	1.6345846540397	2.0963465050197	2.02095576511225	2.0937075883366	2.3883642310801	1.72638978066177	2.0843856592913	1.92769642603065	1.85851683391957	1.86199383682806	2.19897997503527	1.61665387589642	2.3255732483884	1.92307168605745	2.19948135673377	1.9968430080126	1.65507219897364	1.90918811367288	2.48857810101799	1.53577441507297	2.02832414012664	2.26051193656807	2.41329897354798	2.35003633790051	2.09423150499173	1.93741750458051	1.66317655033514	2.06197003060527	2.48552442184574	2.1426204772662	2.47425042183495	1.59484629854896	2.06089730436418	2.05014730456981	1.58698678948449	2.19860707367329	1.53932032795508	2.37387737272393	2.12632256575229	2.07056540387274	2.06949844974209	1.78734100523809	1.90378358945296
+Param: rho_bb 0 n + n n	0.762579829458093	-0.872534079978705	0.648209843365572	-0.609639489652088	0.969517130838369	-0.631629259854118	-0.270608937701232	0.513958887529367	0.433577092644969	0.0867373862687737	0.476866718164512	-0.687177369836932	-0.890638322690103	0.173651482672599	0.205620549627264	-0.248048430701642	0.0474852761704541	-0.261147693597946	0.833328512518698	-0.346908462394056	0.196073757797868	-0.87338600468635	-0.772100718040541	-0.955424213986942	-0.681031581911291	0.835809946044371	0.0666362411187276	-0.537678149955339	-0.300235190345366	0.420508932117021	-0.0279913506302587	-0.820254505160931	0.614895247446748	-0.256174594376888	-0.710933931038752	0.449719785107874	-0.445664920354762	-0.166932294485472	0.0529497140302297	0.583047677286202	0.917875992927341	0.681948941840048	-0.424661609028165	0.722103497106358	0.720211936514456	-0.317027889601897	0.0449985346621635	-0.38238533218694	0.93295691772969	0.171865762761609
+Param: rho_f 0 n + n n	-0.0267065232808338	0.514733445881826	-0.0566495609292007	0.53830140682562	0.928391125861043	-0.748061467733903	0.206775682496927	-0.439782267440473	0.492951117217008	-0.0818806673244364	-0.418275277463056	0.168318772636052	-0.898973324295969	0.915935232693873	-0.425758249598751	0.378926417922358	-0.43390539269744	-0.729333078528103	0.5909534038744	0.568188597364518	-0.751027937015255	0.640911467852675	0.933604692747587	0.815855443240157	-0.393322253205797	0.69135655688955	0.59133180134668	0.49923880830321	0.733327680180047	0.238500470461878	-0.975660878364966	-0.367077584692668	-0.48710073671628	-0.398037103527764	-0.855293605741567	0.0476302583719754	0.618037667810478	-0.175635699036775	-0.886100420728379	-0.84658824605358	0.696109282130683	-0.378342725627579	-0.535386273662229	0.873896286750805	0.32123563003957	-0.351356319528795	-0.491087004261294	-0.905039462892617	-0.622246417909651	0.0703572217077377
+Param: rho_ma 0 n + n n	-0.992642995239775	-0.147665295037699	0.477786404609412	0.986171521126137	-0.557083135123971	-0.378823158531882	0.588053868147515	-0.578557343072341	0.807222846376302	0.203114123521251	-0.423546853829073	0.230454842906655	-0.79508981255178	0.86395232082185	-0.0335230994051886	-0.0144632941057057	0.990225615779342	-0.821072314676833	0.550541179526244	-0.019798030010252	0.399221917429426	0.111461721845635	-0.252669028129643	-0.488943468891165	0.00161825488587919	0.142146920055297	0.448392939002397	0.785746529189243	0.0282468869560866	-0.85173955550463	-0.574944112293829	0.257642390965323	0.214052874449418	0.369925965592568	0.725408141135894	0.265380186231948	-0.276567216968945	-0.575547023317883	-0.858613856644098	0.867543776009399	0.448906556533839	0.0920095259761369	-0.305085557368692	-0.469386032809108	0.106140435296817	0.0941720152149406	-0.444609536009605	0.555427274319404	0.965741698034933	-0.557700810481907
+Param: k 0 n + n n	1	3	2	5	2	8	9	2	8	10	8	5	6	6	7	8	7	7	6	7	2	2	5	10	1	3	6	5	4	3	9	5	6	7	8	1	7	4	5	3	8	1	3	10	7	10	10	6	5	5
+Param: sigma_trade 0 n + n n	0.0135477004296781	0.083500858999458	0.0968867771124231	0.0221034042982705	0.0308167050507003	0.0547220596367852	0.0188381976047181	0.0992881301917807	0.0996461325548009	0.0967694937010503	0.072583896321189	0.0981109691776939	0.0109861750844206	0.079810585674955	0.0297029449557951	0.000478348441931567	0.011246451605618	0.0639763357098153	0.0878430645398844	0.050366267770517	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781	0.0135477004296781
+Var: B 2 n + n n	900.828207295117	946.267324254326	962.059796429553	1047.90351641068	1077.85433163231	986.33984141349	994.725387621895	1095.08988370482	1000.91142137574	897.784133233313	1020.50140811317	995.479834163424	1103.30946236777	1146.13694712985	880.588113324814	1123.5924853649	1096.38934438439	957.715984607889	691.146897212453	1144.85090304648	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326	900.828207295117	946.267324254326
+Var: EMA 1 n + n n	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100	100
+Var: M 1 n + n n	947.054301062708	1113.4977958598	1159.98689301741	880.366668730413	965.812939640714	973.264134902384	984.704689919669	856.9246474932	1078.91979858509	899.155363979002	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708	947.054301062708
+Var: V 1 n + n n	11.3044322703172	11.0219183460167	8.46226535526504	8.72206346982903	10.5415861422607	9.99667342243179	11.1262478565351	9.63160101817176	8.9114679481564	10.7065145816179	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172	11.3044322703172
+Var: Q 0 n + n n
+Var: Trade 1 n + n n	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Var: Interaction 0 n + n n
+Var: prob_trade 1 n + n n	0.550364560616449	0.736047522757246	0.999864667458049	0.856777550796358	0.722541383610991	0.577109060600298	0.96583100848112	0.638195653038373	0.989695521336306	0.767370051725194	0.772640252860021	0.95791310320259	0.606536167140127	0.557616423566699	0.815364867809586	0.985048470312951	0.848617334397865	0.845154074628606	0.569468122744353	0.890930416931752	0.827184571468708	0.864542610800632	0.59346559837382	0.5458313474268	0.858692183177268	0.769402046856941	0.758164010549531	0.570241180716678	0.59854797937396	0.791475808711478	0.579491243536896	0.518628391649857	0.726669896002677	0.5874313998359	0.564016361168111	0.822903054544158	0.956032748522681	0.611707221654326	0.998536372040799	0.634259655444489	0.80290380615396	0.625978717912954	0.749458030239721	0.884072985305939	0.947086188218509	0.504833922977969	0.818477092285967	0.682918177573411	0.948038832878464	0.95968230353558
+Param: prob_interaction 0 n + n n	0.0148359039179012	0.129373571222978	0.91441682916712	0.22342104862997	0.951233146196219	0.111067871624432	0.0511239386583257	0.502660915059776	0.251032120915395	0.7074283547067	0.657125898259349	0.682529102056598	0.639555728420953	0.626393028529804	0.391759946267133	0.803351818428459	0.218648305232423	0.249673969331207	0.755620632570488	0.177734952295058	0.151944519596293	0.2190391291392	0.183912202341103	0.252010718658036	0.0689968071968228	0.998767437226114	0.207652138644888	0.982380817686364	0.308912901109065	0.943536939203521	0.360810889590138	0.604179983472987	0.0279318845319247	0.574624333690313	0.167438962766214	0.755450480879401	0.587143223801461	0.507197038192788	0.963227599251109	0.971505486570234	0.633803640387799	0.690883924807264	0.0890439449481832	0.0507955839943422	0.508111335862919	0.960234697093909	0.661701236981949	0.171605724049954	0.789862406636398	0.0415961696708583
+Var: Return 0 n + n n
+Param: X 0 s + n n	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Param: Y 0 s + n n	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+SIM_NUM 1
+SEED 2
+MAX_STEP 2000
+EQUATION fun_agens_beadando_3.cpp
+MODELREPORT report_Sim1.html
+
+DESCRIPTION
+
+Object_Root
+
+END_DESCRIPTION
+
+Variable_Init
+a szimuláció elején az ár -MAX_LOOKBACK indexig beállítódik véletlenszer?en
+END_DESCRIPTION
+
+Parameter_PRICE_START
+
+END_DESCRIPTION
+
+Parameter_AVG_STARTING_M_STD
+
+END_DESCRIPTION
+
+Parameter_AVG_STARTING_V_STD
+
+END_DESCRIPTION
+
+Object_Market
+
+END_DESCRIPTION
+
+Parameter_alpha
+
+END_DESCRIPTION
+
+Parameter_entry_prob
+
+END_DESCRIPTION
+
+Parameter_exit_prob
+
+END_DESCRIPTION
+
+Parameter_mutation_level
+
+END_DESCRIPTION
+
+Parameter_sigma_learning
+
+END_DESCRIPTION
+
+Parameter_sigma_price
+
+END_DESCRIPTION
+
+Parameter_sigma_fundament
+
+END_DESCRIPTION
+
+Variable_Total_Trade
+a teljes Trade mennyiség
+END_DESCRIPTION
+
+Variable_Avg_B
+az átlagos vagyona egy ágensnek
+END_DESCRIPTION
+
+Variable_N
+ha egy ágens vagyona 0.01 alá csökkenne, akkor kiszáll
+	minden iterációban egy véletlenszerü ágens exit_prob-al kiszáll
+	minden iterációban entry_prob valószín?séggel egy új ágens száll be akkor,
+	hogy ha az ágensek száma nem lépné túl a MAX_NUMBER_OF_AGENTS-et
+END_DESCRIPTION
+
+Variable_Mutation
+minden iterációban az ágensek mutálódnak egy mutation_prob valószín?séggel
+END_DESCRIPTION
+
+Variable_P
+az ár az ágensek aggergált döntései (sum(Trade)) és egy alpha paraméter szorzatának függvényében
+	alakul egy Norm(0, sigma_price^2) sztochasztikus fluktuáció mellett.
+	
+	ha az ár egy MAX_PRICE fölé menne, akkor lekorlátozódik arra a szintre
+	az ár nem mehet 0.01 alá (a 0 érték NaN-okat okozna)
+END_DESCRIPTION
+
+Variable_F
+
+END_DESCRIPTION
+
+Variable_Avg_M
+az átlagos likvid eszköze egy ágensnek
+END_DESCRIPTION
+
+Variable_Avg_V
+az átlagos részvények száma egy ágensnél
+END_DESCRIPTION
+
+Variable_Avg_Return
+az ágensek átlagos egyperiódusú returnje
+END_DESCRIPTION
+
+Parameter_avg_starting_m
+
+END_DESCRIPTION
+
+Parameter_avg_starting_v
+
+END_DESCRIPTION
+
+Object_Agent
+
+END_DESCRIPTION
+
+Parameter_gamma
+
+_INIT_
+All 75 instances drawn from uniform distribution between 0 and 0.05
+END_DESCRIPTION
+
+Parameter_mutation_prob
+
+_INIT_
+All 75 instances drawn from uniform distribution between 0 and 0.1
+END_DESCRIPTION
+
+Parameter_smoothing
+
+_INIT_
+All 75 instances drawn from uniform distribution between 1.5 and 2.5
+END_DESCRIPTION
+
+Parameter_rho_bb
+
+_INIT_
+All 75 instances drawn from uniform distribution between -1 and 1
+END_DESCRIPTION
+
+Parameter_rho_f
+
+_INIT_
+All 50 instances drawn from uniform distribution between -1 and 1
+END_DESCRIPTION
+
+Parameter_rho_ma
+
+_INIT_
+All 75 instances drawn from uniform distribution between -1 and 1
+END_DESCRIPTION
+
+Parameter_k
+
+_INIT_
+All 75 instances drawn from integer uniform distribution between 1 and 10
+END_DESCRIPTION
+
+Parameter_sigma_trade
+
+_INIT_
+All 75 instances drawn from uniform distribution between 0 and 0.1
+END_DESCRIPTION
+
+Variable_B
+
+_INIT_
+All 50 instances drawn from normal distribution of mean 1000 and s.d. 100
+END_DESCRIPTION
+
+Variable_EMA
+
+_INIT_
+All 50 instances equal to 100
+END_DESCRIPTION
+
+Variable_M
+likvid eszköz (cash)
+_INIT_
+All 50 instances drawn from normal distribution of mean 1000 and s.d. 100
+END_DESCRIPTION
+
+Variable_V
+az ágensnél lév? részvények száma
+_INIT_
+All 50 instances drawn from normal distribution of mean 10 and s.d. 1
+END_DESCRIPTION
+
+Variable_Q
+
+END_DESCRIPTION
+
+Variable_Trade
+az ágens vagyona: B = M + Q, ahol
+		M : likvid eszköz (cash)
+		Q : a kereskedett pénzügyi termék piaci értéke
+			Q = P * V, ahol
+			V = a nála lév? részvények száma
+			V_t = V_{t-1} + Trade_t
+
+	az ágens több szempontot is figyelembe vesz döntéshozatalánál (Trade kiszámításánál):
+		1) P_t - MA(k)_t -> (moving average indicator) 
+		2) EMA_t = P_t * (smoothing/(1+k)) + EMA_{t-1}*(1-smoothing/(1+k))  -> (exponenciálisan simított MA)
+		3) STD(P, k) (árvolatilitás k-ablakban)
+		4) BB_t = EMA_t +- STD(P, k) -> (egyszerüsített Bollinger Bands)
+		
+		==
+		
+		a döntés: D (érték):
+			D < 0: SELL
+			D = 0: NO TRADE
+			D > 0: BUY
+		
+		rho_ma-parametrizált döntés:
+		D += (P_t - MA(k)_t) * rho_ma
+		
+		rho_bb-parametrizált döntés:
+		ha P_t > BB_t+ vagy P_t < BB_t-:
+			D += (P_t - BB_t+) * rho_bb
+		vagy
+			D += (P_t - BB_t-) * rho_bb
+			
+		rho_f-parametrizált döntés:
+		D += (P_t - F_t) * rho_f
+		
+	az ágens likviditási paramétere gamma:
+		gamma a minimális elfogadható M/B érték
+		
+	az ágens a végsö döntését (D+Norm(0, sigma_trade^2)) * (kockázati érték) alapján állapítja meg
+	
+	az ágens B-függ? prob_trade valószínöséggel tradel az adott interációban,
+		ha venni akar (Trade > 0), akkor csak úgy teheti meg, ha van elég M-je, illetve ha ezzel a vétellel M/B
+		értéke nem megy gamma alá
+		ha eladni akar (Trade < 0), akkor maximum annyit adhat el, amennyi V-je van
+END_DESCRIPTION
+
+Variable_Interaction
+az ágensek interaktálnak egymással saját prob_interaction valószín?séggel,
+	ha a profitja a másik ágensnek az elmúlt 2 id?szakban nagyobb volt, mint neki,
+	akkor tanul töle, azaz a másik ágens paraméterértékeit veszi fel egy Norm(0, sigma_learning^2)
+	sztochasztikus eltérés mellett
+END_DESCRIPTION
+
+Variable_prob_trade
+az ágens prob_trade-el tradel minden idöperiódusban:
+		prob_trade függ a profittól: 
+			prob_trade	+=	Norm(0.15, 0.01)	ha B_{t-1} - B_{t-2} > 0
+						-=	Norm(0.1, 0.01)		egyébként
+_INIT_
+All 75 instances drawn from uniform distribution between 0.5 and 1
+END_DESCRIPTION
+
+Parameter_prob_interaction
+
+_INIT_
+All 50 instances drawn from uniform distribution between 0 and 1
+END_DESCRIPTION
+
+Variable_Return
+Egyperiódusú return
+END_DESCRIPTION
+
+Parameter_X
+
+END_DESCRIPTION
+
+Parameter_Y
+
+END_DESCRIPTION
+
+
+DOCUOBSERVE
+
+END_DOCUOBSERVE
+
+
+DOCUINITIAL
+
+END_DOCUINITIAL
+
+
+EQ_FILE
+//#define EIGENLIB			// uncomment to use Eigen linear algebra library
+
+#include "fun_head_fast.h"
+
+#define ___NO_EXPORT_CSV___ 1 // 0-ra kell állítani ha exportálni kell az egy darab futtatás utáni adatokat automatikusan
+#define ___NO_EXPORT_MASS_CSV___ 1 // 0-ra kell állítani ha exportálni kell a több futtatás utáni adatokat automatikusan
+
+#define ___FUNDAMENTAL_CRASH___ 0 // 1-re kell állítani ha válságot akarunk szimulálni (a 400-adik pediódusban)
+
+#define MAX_LOOKBACK 10 // maximum árkésleltetés
+#define PRICE_START V("PRICE_START") // kezdöár
+#define MAX_PRICE 50000 // max ár
+#define MAX_NUMBER_OF_AGENTS 64 // ágensek maximális száma (négyzetszám)
+
+#define AVG_STARTING_M_STD V("AVG_STARTING_M_STD") // kezdö cash szórása
+#define AVG_STARTING_V_STD V("AVG_STARTING_V_STD") // kezdö eszközmennyiség szórása
+
+
+/*
+
+	új ágens hozzáadása a modellhez makró
+*/
+
+#define NEWOBJECT cur1 = ADDOBJ("Agent"); \
+	WRITES(cur1, "M", norm(V("avg_starting_m"), AVG_STARTING_M_STD)); \
+	WRITES(cur1, "V", norm(V("avg_starting_v"), AVG_STARTING_V_STD)); \
+	WRITES(cur1, "rho_ma", uniform(-1, 1)); \
+	WRITES(cur1, "rho_bb", uniform(-1, 1)); \
+	WRITES(cur1, "rho_f", uniform(-1, 1)); \
+	WRITES(cur1, "gamma", uniform(0, 0.05)); \
+	WRITES(cur1, "k", 1+(int)(uniform(0,1)*(MAX_LOOKBACK-1))); \
+	WRITES(cur1, "EMA", VL("P", 1)); \
+	WRITES(cur1, "mutation_prob", uniform(0, 0.1)); \
+	WRITES(cur1, "sigma_trade", uniform(0, 0.1)); \
+	WRITES(cur1, "smoothing", uniform(1.5, 2.5)); \
+	WRITES(cur1, "prob_interaction", uniform(0, 1)); \
+	v[0]++;
+
+// adatok csv-be írása esetén FILE*-ok deklarálása
+
+#if ___NO_EXPORT_CSV___ == 0
+FILE* ___f = NULL;
+FILE* ___f2 = NULL;
+FILE* ___f3 = NULL;
+FILE* ___f4 = NULL;
+FILE* ___f5 = NULL;
+FILE* ___f6 = NULL;
+FILE* ___f7 = NULL;
+FILE* ___f8 = NULL;
+#endif
+
+// a több futtatás utáni return-öket az avg_returns float array-be tároljuk majd,
+// az exportálás során _current_time változó használata a jelenlegi idöperiódus tárolására
+
+#if ___NO_EXPORT_MASS_CSV___ == 0
+float* avg_returns;
+int _current_time;
+#endif
+
+MODELBEGIN
+
+EQUATION("Init")
+
+#if ___NO_EXPORT_MASS_CSV___ == 0
+_current_time = 0;
+
+// maximum 2000 érték / futtatás
+avg_returns = new float[2000];
+
+// ha nem lehet heap-re allokálni, jelezze az LSD hogy baj van
+if(avg_returns == NULL) {
+	plog("[avg_returns -> PANIC!] heap alloc failed\n");
+}
+#endif
+
+// a fileok nevei amikbe az egyszeri futtatás utáni adatok tárolódnak majd
+#if ___NO_EXPORT_CSV___ == 0
+___f = fopen("price.csv", "w+"); // price.csv
+___f2 = fopen("volume.csv", "w+");
+___f3 = fopen("number.csv", "w+");
+___f4 = fopen("return.csv", "w+");
+___f5 = fopen("wealth.csv", "w+");
+___f6 = fopen("trader_strat.csv", "w+"); // trader_strat.csv
+___f7 = fopen("trader_strat_fund.csv", "w+"); // trader_strat_fund.csv
+___f8 = fopen("fundament.csv", "w+"); // fundament.csv
+
+// ha nem lehetséges megnyitni szerkesztésre a file-t, vagy nem lehet valamilyen okból új file-t létrehozni ha még nem létezne az olyan nevü file,
+// az LSD jelezze, hogy baj van
+if(___f == NULL) {
+	plog("[price.csv] ERR\n");
+}
+if(___f2 == NULL) {
+	plog("[volume.csv] ERR\n");
+}
+if(___f3 == NULL) {
+	plog("[number.csv] ERR\n");
+}
+if(___f4 == NULL) {
+	plog("[return.csv] ERR\n");
+}
+if(___f5 == NULL) {
+	plog("[wealth.csv] ERR\n");
+}
+if(___f6 == NULL) {
+	plog("[trader_strat.csv] ERR\n");
+}
+if(___f7 == NULL) {
+	plog("[trader_strat_fund.csv] ERR\n");
+}
+if(___f8 == NULL) {
+	plog("[fundament.csv] ERR\n");
+}
+#endif
+
+/*
+	a szimuláció elején az ár -MAX_LOOKBACK indexig beállítódik véletlenszerüen,
+	az ágensek egy gridbe tevödnek  
+
+*/
+
+cur = SEARCH("Market");
+for(int iter_idx = 1; iter_idx <= MAX_LOOKBACK; iter_idx++) {
+	// ár kezdöértékeinek beállítása
+	WRITELS(cur, "P", norm(PRICE_START, V("sigma_price")), t-iter_idx);
+}
+
+int iter_idx = 0;
+
+CYCLES(cur, cur1, "Agent") {
+	/*
+		az ágensek X és Y koordinátáit felülröl lefele, jobbról balra feltöltjük
+	*/
+	
+	WRITES(cur1, "X", iter_idx%(int)(sqrt(MAX_NUMBER_OF_AGENTS)));
+	WRITES(cur1, "Y", (int)(iter_idx/sqrt(MAX_NUMBER_OF_AGENTS)));
+	
+	// M, V és B kezdöértékeinek beállítása minden ágensnek (t-1, t-2)
+	for(int _iter_idx = 1; _iter_idx <= 2; _iter_idx++) {
+		v[0] = norm(VS(cur, "avg_starting_m"), AVG_STARTING_M_STD);
+		v[1] = norm(VS(cur, "avg_starting_v"), AVG_STARTING_V_STD);
+	
+		WRITELS(cur1, "M", v[0], t-1);
+		WRITELS(cur1, "V", v[1], t-1);
+		WRITELS(cur1, "B", v[0]+v[1], t-1);
+	}
+	
+	iter_idx++;
+}
+
+PARAMETER
+RESULT(1)
+
+
+//////////////// <Piac> ////////////////////////////////////////
+
+// Fundamentum egy AR(1) folyamat
+EQUATION("F")
+v[0] = VL("F", 1) + norm(0, V("sigma_fundament"));
+
+// ha válságot kell szimulálni
+#if ___FUNDAMENTAL_CRASH___ == 1
+if(t >= 400 && t <= 1500) {
+	v[0] = 10; // a válság hatására a fundamentum alacsony (10) szintre esik hirtelen, és ott is marad egészen az 1500-ik periódusig
+}
+#endif
+
+// ha kell csv-be export
+#if ___NO_EXPORT_CSV___ == 0
+fprintf(___f8, "%f,", (float)v[0]);
+#endif
+
+// a fundamentum nem mehet 0.01 alá
+RESULT( max(v[0], 0.01) )
+
+EQUATION("P")
+/*
+	az ár az ágensek aggergált döntései (sum(Trade)) és egy alpha paraméter szorzatának függvényében
+	alakul egy Norm(0, sigma_price^2) sztochasztikus fluktuáció mellett.
+	
+	ha az ár egy MAX_PRICE fölé menne, akkor lekorlátozódik arra a szintre
+	az ár nem mehet 0.01 alá (a 0 érték NaN-okat okozna)
+
+*/
+
+v[0] = 0;
+CYCLE_SAFE(cur, "Agent") {
+	v[0] += VLS(cur, "Trade", 1);
+}
+
+//v[0] /= log(VL("N", 1));
+
+v[1] = VL("P", 1) + V("alpha")*v[0] + norm(0, V("sigma_price"));
+
+if(v[1] > MAX_PRICE) v[1] = MAX_PRICE;
+
+#if ___NO_EXPORT_CSV___ == 0
+float __res = (float)(max(v[1], 0.01));
+fprintf(___f, "%f,", __res);
+#endif
+
+RESULT( max(v[1], 0.01) )
+
+EQUATION("N")
+/*
+	ha egy ágens vagyona 0.01 alá csökkenne, akkor kiszáll
+	minden iterációban egy véletlenszerü ágens exit_prob-al kiszáll
+	minden iterációban entry_prob valószín?séggel egy új ágens száll be akkor,
+	hogy ha az ágensek száma nem lépné túl a MAX_NUMBER_OF_AGENTS-et
+
+*/
+
+// a kettö lehetségesen törlödö ágens koordinátáinak eltárolásához 4 változó
+int deleted_x = -1, deleted_y = -1;
+int deleted_x2 = -1, deleted_y2 = -1;
+
+v[0] = VL("N", 1);
+
+CYCLE_SAFE(cur, "Agent") {
+	if(VS(cur, "B") <= 50) {
+		// nincs elég pénze, kiszáll
+		// csak akkor, ha a törlés után legalább egy ágens lesz még
+		if(v[0] > 1) {
+			deleted_x = VS(cur, "X");
+			deleted_y = VS(cur, "Y");
+			DELETE(cur);
+			v[0]--;
+		}
+	}
+}
+
+// csak akkor szállhat ki random, ha utána legalább marad még egy ágens
+if(RND < V("exit_prob")) {
+	if(v[0] > 1) {
+		// ha még van ágens
+		cur = RNDDRAW_FAIR("Agent");
+		// biztonság kedvéért
+		if(cur != NULL) {
+			deleted_x2 = VS(cur, "X");
+			deleted_y2 = VS(cur, "Y");
+			DELETE(cur);
+			v[0]--;
+		}
+	}
+}
+
+// be tud szállni új ágens a gridbe entry_prob-al
+if(RND < V("entry_prob") && v[0] < MAX_NUMBER_OF_AGENTS) {
+	NEWOBJECT
+	
+	if(deleted_x == -1 && deleted_y == -1 && deleted_x2 == -1 && deleted_y2 == -1) {
+		// nincs üres hely, az új koordináta a következö lesz a grid-ben
+		int new_x = (int)v[0]%(int)(sqrt(MAX_NUMBER_OF_AGENTS));
+		int new_y = (int)((int)v[0]/sqrt(MAX_NUMBER_OF_AGENTS));
+		WRITES(cur1, "X", new_x);
+		WRITES(cur1, "Y", new_y);
+	} else if(deleted_x != -1 && deleted_y != -1 && deleted_x2 == -1 && deleted_y2 == -1) {
+		// ha az egyik ágens törlödött csak
+		WRITES(cur1, "X", deleted_x);
+		WRITES(cur1, "Y", deleted_y);
+	} else if(deleted_x == -1 && deleted_y == -1 && deleted_x2 != -1 && deleted_y2 != -1) {
+		// ha csak a másik törlödött
+		WRITES(cur1, "X", deleted_x2);
+		WRITES(cur1, "Y", deleted_y2);
+	} else {
+		// mindkét hely megüresedett, random választ az ágens helyet
+		if(RND < 0.5) {
+			WRITES(cur1, "X", deleted_x);
+			WRITES(cur1, "Y", deleted_y);
+		} else {
+			WRITES(cur1, "X", deleted_x2);
+			WRITES(cur1, "Y", deleted_y2);
+		}
+	}
+}
+
+// ha csv export kell
+#if ___NO_EXPORT_CSV___ == 0
+int ___res = (int)v[0];
+fprintf(___f3, "%d,", ___res);
+
+///// átlagos ágens-stratok
+float avg_strat = 0;
+float avg_strat_f = 0;
+
+CYCLE_SAFE(cur, "Agent") {
+	avg_strat += VS(cur, "rho_ma");
+	avg_strat_f += VS(cur, "rho_f");
+}
+
+avg_strat /= v[0];
+avg_strat_f /= v[0];
+
+fprintf(___f6, "%f,", avg_strat);
+fprintf(___f7, "%f,", avg_strat_f);
+#endif
+
+RESULT(v[0])
+
+EQUATION("Mutation")
+/*
+	az ágensek a szimuláció elején mutálódnak egy mutation_prob valószínüséggel (hogy lehetségesen 1-nél nagyobb abszolútértékü rho-ik legyenek)
+
+*/
+
+CYCLE_SAFE(cur, "Agent") {
+	if(RND < VS(cur, "mutation_prob")) {
+		INCRS(cur, "rho_ma", uniform(0, V("mutation_level"))-V("mutation_level")/2);
+		INCRS(cur, "rho_bb", uniform(0, V("mutation_level"))-V("mutation_level")/2);
+		INCRS(cur, "rho_f", uniform(0, V("mutation_level"))-V("mutation_level")/2);
+		INCRS(cur, "gamma", uniform(0, V("mutation_level"))-V("mutation_level")/2);
+		INCRS(cur, "smoothing", uniform(0, V("mutation_level"))-V("mutation_level")/2);
+			
+		// csak akkor változzon k, ha mindkét irányba változhatna, azaz nem menne 1 alá és MAX_LOOKBACK fölé
+		if(VS(cur, "k")+1 <= MAX_LOOKBACK && VS(cur, "k")-1 > 0) {
+			if(RND < 0.5) {
+				INCRS(cur, "k", 1);
+			} else {
+				INCRS(cur, "k", -1);
+			}
+		}
+	}
+}
+
+PARAMETER
+RESULT(0)
+
+EQUATION("Total_Trade")
+/*
+	a teljes Trade mennyiség
+
+*/
+v[0] = 0;
+CYCLE_SAFE(cur, "Agent") {
+	v[0] += abs(VS(cur, "Trade"));
+}
+
+// ha exportálni kell csv-be
+#if ___NO_EXPORT_CSV___ == 0
+float ___res = (float)v[0];
+fprintf(___f2, "%f,", ___res);
+#endif
+
+RESULT(v[0])
+
+EQUATION("Avg_B")
+/*
+	az átlagos vagyona egy ágensnek
+
+*/
+v[0] = 0;
+CYCLE_SAFE(cur, "Agent") {
+	v[0] += VS(cur, "B");	
+}
+v[0] /= V("N");
+
+// ha exportálni kell csv-be
+#if ___NO_EXPORT_CSV___ == 0
+float ___res = (float)v[0];
+fprintf(___f5, "%f,", ___res);
+#endif
+
+RESULT(v[0])
+
+EQUATION("Avg_V")
+/*
+	az átlagos részvények száma egy ágensnél
+
+*/
+v[0] = 0;
+CYCLE_SAFE(cur, "Agent") {
+	v[0] += VS(cur, "V");	
+}
+v[0] /= V("N");
+RESULT(v[0])
+
+
+EQUATION("Avg_M")
+/*
+	az átlagos likvid eszköze egy ágensnek
+
+*/
+v[0] = 0;
+CYCLE_SAFE(cur, "Agent") {
+	v[0] += VS(cur, "M");	
+}
+v[0] /= V("N");
+RESULT(v[0])
+
+EQUATION("Avg_Return")
+/*
+	az egyperiódusos return (%)
+*/
+v[0] = (V("P") - VL("P", 1))/VL("P", 1);
+
+// ha exportálni kell egy futtatás után
+#if ___NO_EXPORT_CSV___ == 0
+float ___res = (float)v[0];
+fprintf(___f4, "%f,", ___res);
+#endif
+
+// ha több futtatás után kell exportálni (minden futtatás egy-egy file "SIM1_<run_num>.csv" névvel
+#if ___NO_EXPORT_MASS_CSV___ == 0
+avg_returns[_current_time] = (float)v[0]; // tároljuk el az épp aktuális avg_return-t
+
+// ha a szimuláció véget ért
+if(_current_time == 2000-1) {
+	// szimuláció vége, kiírni fileba, a file neve max 30 karakter lehet
+	char _file_name[30];
+	sprintf(_file_name, "Sim1_%d.csv", cur_sim);
+	
+	// file megnyitása szerkesztése vagy annak létrehozása ha nem létezik
+	FILE* ___avg_returns = fopen(_file_name, "w+");
+	// ellenörizzük, hogy meg lehetett-e nyitni a file-t
+	if(___avg_returns == NULL) {
+		plog("[Sim1/Sim1_%d] ERR\n", cur_sim);
+	}
+	// mind a 2000 értéket beleírni a file-ba
+	for(int iter_idx = 0; iter_idx < 2000; iter_idx++) {
+		fprintf(___avg_returns, "%f,", avg_returns[iter_idx]);
+	}
+	fclose(___avg_returns);
+	// memory leak elkerülése végett a használt heap-et felszabadítani
+	delete[] avg_returns;
+	
+	_current_time = 0;
+} else {
+	_current_time++;
+}
+#endif
+
+RESULT(v[0])
+/////////////////// </Piac> //////////////////////////////////////
+
+////////////////// <Ágens> ///////////////////////////////////////
+
+// exponenciálisan simított mozgóátlag (ágens-specifikus smoothing mellett)
+EQUATION("EMA")
+v[0] = VL("EMA", 1)*(1-V("smoothing")/(1+V("k"))) + V("P")*(V("smoothing")/(1+V("k")));
+RESULT(v[0])
+
+EQUATION("prob_trade")
+/*
+	az ágens prob_trade-el tradel minden idöperiódusban:
+		prob_trade függ a profittól: 
+			prob_trade	+=	Norm(0.15, 0.01)	ha B_{t-1} - B_{t-2} > 0
+						-=	Norm(0.1, 0.01)		egyébként
+
+*/
+
+v[0] = VL("B", 2);
+v[1] = VL("B", 1);
+v[2] = VL("prob_trade", 1);
+
+if(v[1]-v[0] > 0) {
+	v[2] += norm(0.15, 0.01);
+} else {
+	v[2] += norm(-0.1, 0.01);
+}
+
+if(v[2] > 1) v[2] = 1; // a valószínüség 0-1 közé szorítása
+if(v[2] < 0) v[2] = 0;
+
+RESULT(v[2])
+
+EQUATION("M")
+/*
+	likvid eszköz (cash)
+*/
+v[0] = VL("M", 1) - VL("Trade", 1)*VL("P", 1);
+
+RESULT(v[0])
+
+EQUATION("V")
+/*
+	az ágensnél lévö részvények száma
+*/
+v[0] = VL("V", 1) + VL("Trade", 1);
+
+RESULT(v[0])
+
+EQUATION("Q")
+/*
+	ágens eszközeinek értéke
+*/
+RESULT( V("V")*V("P") )
+
+EQUATION("B")
+/*
+	az ágens vagyona a készpénze + eszközeinek értéke
+*/
+
+v[0] = V("M") + V("V")*V("P");
+RESULT(v[0])
+
+EQUATION("Return")
+/*
+	ágens egy periódus alatti vagyonváltozása
+
+*/
+v[0] = V("B") - VL("B", 1);
+RESULT(v[0])
+
+EQUATION("Trade")
+/*
+	az ágens vagyona: B = M + Q, ahol
+		M : likvid eszköz (cash)
+		Q : a kereskedett pénzügyi termék piaci értéke
+			Q = P * V, ahol
+			V = a nála lévö részvények száma
+			V_t = V_{t-1} + Trade_t
+
+	az ágens több szempontot is figyelembe vesz döntéshozatalánál (Trade kiszámításánál):
+		1) P_t - MA(k)_t -> (moving average indicator) 
+		2) EMA_t = P_t * (smoothing/(1+k)) + EMA_{t-1}*(1-smoothing/(1+k))  -> (exponenciálisan simított MA)
+		3) STD(P, k) (árvolatilitás k-ablakban)
+		4) BB_t = EMA_t +- STD(P, k) -> (egyszerüsített Bollinger Bands)
+		
+		==
+		
+		a döntés: D (érték):
+			D < 0: SELL
+			D = 0: NO TRADE
+			D > 0: BUY
+		
+		rho_ma-parametrizált döntés:
+		D += (P_t - MA(k)_t) * rho_ma
+		
+		rho_bb-parametrizált döntés:
+		ha P_t > BB_t+ vagy P_t < BB_t-:
+			D += (P_t - BB_t+) * rho_bb
+		vagy
+			D += (P_t - BB_t-) * rho_bb
+			
+		rho_f-parametrizált döntés:
+		D += (P_t - F_t) * rho_f
+		
+	az ágens likviditási paramétere gamma:
+		gamma a minimális elfogadható M/B érték
+		
+	az ágens a végsö döntését (D+Norm(0, sigma_trade^2)) * (kockázati érték) alapján állapítja meg
+	
+	az ágens B-függö prob_trade valószínöséggel tradel az adott interációban,
+		ha venni akar (Trade > 0), akkor csak úgy teheti meg, ha van elég M-je, illetve ha ezzel a vétellel M/B
+		értéke nem megy gamma alá
+		ha eladni akar (Trade < 0), akkor maximum annyit adhat el, amennyi V-je van
+		
+*/
+
+// k-visszatekintö mozgóátlag kiszámítása
+v[0] = 0;
+for(int iter_idx = 1; iter_idx < V("k"); iter_idx++) {
+	v[0] += VL("P", iter_idx);
+}
+v[0] += V("P");
+v[0] /= V("k"); // MA(k)_t
+v[1] = V("P") - v[0]; // P_t - MA(k)_t, ez az MA indikátor
+
+// k-visszatekintö szórás kiszámítása
+v[2] = 0;
+for(int iter_idx = 1; iter_idx < V("k"); iter_idx++) {
+	v[2] += pow(VL("P", iter_idx)-v[0], 2);
+}
+v[2] += pow(V("P")-v[0], 2);
+v[2] /= V("k");
+v[2] = sqrt(v[2]); // STD(P, k)
+
+// a Bollinger-Bands kettö sávja
+v[3] = V("EMA") + v[2]; // BB+
+v[4] = V("EMA") - v[2]; // BB-
+if(v[4] < 0.01) v[4] = 0.01; // a BB- nem mehet negatívba 
+
+v[5] = 0; // BB indikátor
+// BB indikátor csak akkor nem nulla, ha az ár elhagyta a BB+-t felülröl vagy a BB-t alulról
+if(V("P") > v[3]) {
+	v[5] = V("P") - v[3];
+}
+if(V("P") < v[4]) {
+	v[5] = V("P") - v[4];
+}
+
+v[6] = V("F") - V("P"); // F_t - P_t, ez az F inditákor
+
+v[7] = V("rho_ma")*v[1] + V("rho_bb")*v[5] + V("rho_f")*v[6]; // D, a döntés a három indikátor alapján
+
+v[7] += norm(0, V("sigma_trade")); // véletlen kereskedési döntésbeli változás
+
+// ellenörizni kell, hogy vételhez van-e elég cash
+if(v[7] > 0) {
+	// ha venni akar
+	v[8] = v[7]*V("P");
+	if(v[8] > V("M")) {
+		// nincs elég likviditása, nem vesz semmit
+		v[7] = 0;
+	}
+} else if(v[7] < 0) {
+	// ha eladni akar
+	if(abs(v[7]) > V("V")) {
+		// maximum a nála lévö részvények mennyiségét adhatja el
+		v[7] = V("V");
+	}
+}
+// ellenörzi, hogy nem lenne-e túl kevés likviditása a trade végrehajtásával
+v[9] = (V("M")-V("P")*v[7])/(V("M")-V("P")*v[7] + (v[7]+V("V"))*V("P"));
+if(v[9] < V("gamma")) {
+	// ha túl kevés lenne a likviditása (csak vétel esetén), nem vesz
+	if(v[7] > 0) {
+		v[7] = 0;
+	}
+}
+
+// prob_trade-el fog csak egyáltalán kereskedni
+if(RND >= V("prob_trade")) {
+	v[7] = 0;
+	
+}
+
+RESULT(v[7])
+
+EQUATION("Interaction")
+/*
+	interakció két ágens között, így tanulnak egymástól
+
+*/
+
+// a maximális szomszéd által elért vagyonváltozás
+v[0] = -999999999;
+CYCLE_SAFE(cur, "Agent") {
+	// ha nem önmaga (az ágensek és koordinátáit között injektív leképezés van)
+	if(V("X") != VS(cur, "X") && V("Y") != VS(cur, "Y")) {
+		// ha az éppen vizsgált szomszéd (cur) az ágens szomszédságában van
+		if(abs(V("X") - VS(cur, "X") + V("Y") - VS(cur, "Y")) <= 1) {
+			// cur az ágens szomszédságában van, ___tmp-be a vagyonváltozás
+			float ___tmp = VLS(cur, "B", 1) - VLS(cur, "B", 2);
+			// ha a vagyonváltozás nagyobb, mint az eddigi maximum, az eddigi maximum a vagyonváltozás egészrésze lesz (float-okat ==-el összehasonlítani nem olyan jó)
+			if(___tmp > v[0]) v[0] = floor(___tmp); 
+		}
+	}
+}
+CYCLE_SAFE(cur, "Agent") {
+// ha nem önmaga
+if(V("X") != VS(cur, "X") && V("Y") != VS(cur, "Y")) {
+	// ha az éppen vizsgált szomszéd (cur) a szomszédságban van, és vagyonváltozásának egészrészének és a maximális szomszédságbeli vagyonváltozásnak
+	// különbsége abszolútértékben kisebb 1-nél (kerekítési hibák elkerülése végett)
+	if(abs(floor(VLS(cur, "B", 1) - VLS(cur, "B", 2)) - v[0]) < 1 && max(abs(V("X") - VS(cur, "X")), abs(V("Y") - VS(cur, "Y"))) <= 1) {
+		// prob_interaction-el történik a tanulás
+		if(RND < V("prob_interaction")) {
+			// tanul cur-töl
+			WRITE("rho_ma", VS(cur, "rho_ma")+norm(0, V("sigma_learning")));
+			WRITE("rho_bb", VS(cur, "rho_bb")+norm(0, V("sigma_learning")));
+			WRITE("rho_f", VS(cur, "rho_f")+norm(0, V("sigma_learning")));
+			WRITE("smoothing", VS(cur, "smoothing")+norm(0, V("sigma_learning")));
+			WRITE("k", VS(cur, "k"));
+		}
+		
+	}
+}	
+}
+
+RESULT(0)
+
+MODELEND
+
+
+void close_sim( void ) {
+
+// ha exportálni kellett, akkor file-ok bezárása a szimuláció végével
+#if ___NO_EXPORT_CSV___ == 0
+	fclose(___f);
+	fclose(___f2);
+	fclose(___f3);
+	fclose(___f4);
+	fclose(___f5);
+	fclose(___f6);
+	fclose(___f7);
+	fclose(___f8);
+#endif
+}
+
+
+END_EQ_FILE
